@@ -2,13 +2,22 @@
 #include <stdlib.h>
 #include "lista.h"
 #include "fila.h"
+#include "jogadores.h"
 
 int main() {
-    
-    fila Deck, Descarte;
 
-    inicializar(&Deck);
-    inicializar(&Descarte);
+    int qtdJogadores;
+
+    scanf("%d", &qtdJogadores); // Recebe a quantidade de jogadores
+
+    Player jogadores[qtdJogadores]; // Cria um vetor de jogadores
+
+    iniciar_jogadores(jogadores, qtdJogadores); // Inicializa os jogadores
+    
+    fila Deck, Descarte; // Cria o baralho de compra e o baralho de descarte
+
+    inicializar(&Deck); // Inicializa o baralho de compra
+    inicializar(&Descarte); // Inicializa o baralho de descarte
 
     // Insere as cartas no baralho de compra
     for (int i = 0; i < 12; i++) {
@@ -27,22 +36,22 @@ int main() {
     // Embaralha as cartas
     embaralhar(&Deck);
 
-    // Distribui as cartas
+    // Distribui as cartas para os jogadores
+    distribuir_cartas(&Deck, jogadores, qtdJogadores);
 
-    while (1) // Substituir pelo Loop principal do jogo
-    {
-        // Verifica se o baralho de compra está ficando vazio e reabastece com as cartas do baralho de descarte
-        if (tamanho(&Deck) < 5) {  // pode aumentar conforme a necessidade
-            embaralhar(&Descarte);
-            while (tamanho(&Descarte) > 0) {
-                insere(&Deck, Descarte.dados[Descarte.primeiro].dado1, Descarte.dados[Descarte.primeiro].dado2);
-                retira(&Descarte);
-            }
-        } 
+    for (int i = 0; i < qtdJogadores; i++) { // Printei as maos somente para teste
+        mostrar_mao_player(&jogadores[i]);
     }
 
-    // Imprime o deck inteiro
-    //imprime(&Deck);
+    while (1) // ******************* Substituir condição do while pelo Loop principal do jogo *******************
+    {
+        // **************   Manter  *******************
+
+        // Verifica se o baralho de compra está ficando vazio e reabastece com as cartas do baralho de descarte
+        if (tamanho(&Deck) < 1) {  // pode aumentar conforme a necessidade
+            reabastecerDeck(&Deck, &Descarte);
+        } 
+    }
     
     return 0;
 }

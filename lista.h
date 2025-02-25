@@ -45,9 +45,9 @@ iterador primeiro(lista *l); // cria um iterador apontando pro inicio da lista
 
 iterador ultimo(lista *l); // cria um iterador apontando pro final da lista
 
-int proximo(iterador i); // passa o iterador pro próximo elemento da lista. Retorna 1 se conseguir e 0 se passar do final da lista
+int proximo(iterador *i); // passa o iterador pro próximo elemento da lista. Retorna 1 se conseguir e 0 se passar do final da lista
 
-int anterior(iterador i); // passa o iterador pro elemento anterior da lista. Retorna 1 se conseguir e 0 se passar do inicio da lista
+int anterior(iterador *i); // passa o iterador pro elemento anterior da lista. Retorna 1 se conseguir e 0 se passar do inicio da lista
 
 int acabou(iterador i); // verifica se o iterador atingiu o final da lista. Retorna 1 se sim, e 0 se não
 

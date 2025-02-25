@@ -79,17 +79,17 @@ int acabou(iterador i){
   }
 }
 
-int proximo(iterador i){
-  if(!acabou(i)){
-    i.posicao = i.posicao->prox;
+int proximo(iterador *i){
+  if(!acabou(*i)){
+    i->posicao = i->posicao->prox;
     return(1);
   }
   return(0);
 }
 
-int anterior(iterador i){
-  if(!acabou(i)){
-    i.posicao = i.posicao->ant;
+int anterior(iterador *i){
+  if(!acabou(*i)){
+    i->posicao = i->posicao->ant;
     return(1);
   }
   return(0);
@@ -106,7 +106,7 @@ int lista_retirar_termo(lista *l, T1 data1, T2 data2){
       l->quantidade--;
       return(1);
     }
-    if(!proximo(i))
+    if(!proximo(&i))
       return(0);
   }
   return(0); 

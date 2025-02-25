@@ -25,6 +25,7 @@ unsigned tamanho(fila *f);
 void insere(fila *f, T1 dado1, T2 dado2);
 void retira(fila *f);
 void embaralhar(fila *Deck);
+void reabastecerDeck(fila *Deck, fila *Descarte);
 void imprime(fila *f);
 
 #endif

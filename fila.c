@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>  // Inclua a biblioteca time.h
 #include "fila.h"
 
 void inicializar(fila *f) {     // Inicializa a fila
@@ -56,6 +57,7 @@ void retira(fila *f) {         // Retira um valor da fila
 }
 
 void embaralhar(fila *Deck) {  // Embaralha as cartas do Deck
+    srand((unsigned)time(NULL));  // Inicializa a semente do gerador de números aleatórios
     int i, j;
     struct carta temp;
     for (i = 0; i < (int)Deck->quantidade; i++) {
@@ -63,6 +65,14 @@ void embaralhar(fila *Deck) {  // Embaralha as cartas do Deck
         temp = Deck->dados[i];
         Deck->dados[i] = Deck->dados[j];
         Deck->dados[j] = temp;
+    }
+}
+
+void reabastecerDeck(fila *Deck, fila *Descarte) {  // Reabastece o Deck com as cartas do Descarte
+    embaralhar(Descarte);
+    while (!vazia(Descarte)) {
+        insere(Deck, Descarte->dados[Descarte->primeiro].dado1, Descarte->dados[Descarte->primeiro].dado2);
+        retira(Descarte);
     }
 }
 
