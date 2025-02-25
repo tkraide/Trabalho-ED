@@ -30,7 +30,7 @@ void rmv_cartas(Player *jogador, T1 cor, T2 valor){
     }
  
     else{ // Se não conseguir remover a carta
-        printf("Jogador não tem mais cartas %d!\n", jogador->id);
+        printf("Jogador nao tem mais cartas %d!\n", jogador->id);
     }
 }
 
@@ -41,7 +41,7 @@ void mostrar_mao_player(Player *jogador){
   
     iterador i = primeiro(&jogador->mao); // Criar um iterador para percorrer a mão do jogador
   
-    while (!acabou(i)) { // Enquanto o iterador não chegar ao final da mão do jogador
+    while (!acabou(&i)) { // Enquanto o iterador não chegar ao final da mão do jogador
         printf("Valor: %d, Cor: %c\n", i.posicao->dado1, i.posicao->dado2);
         proximo(&i); // Avançar o iterador para o próximo nó
     }
@@ -68,7 +68,6 @@ void distribuir_cartas(fila *Deck, Player jogadores[], int qtd_jogadores){
 void comprar_carta(fila *Deck, Player *jogador){
     add_cartas(jogador, Deck->dados[Deck->primeiro].dado1, Deck->dados[Deck->primeiro].dado2); // Adicionar carta na mão do jogador
     retira(Deck); // Retirar carta do baralho de compra
-    jogador->qtd_cartas++; // Incrementar a quantidade de cartas do jogador
 }
 
 void descartar_carta(fila *Descarte, Player *jogador, T1 cor, T2 valor){
@@ -77,6 +76,6 @@ void descartar_carta(fila *Descarte, Player *jogador, T1 cor, T2 valor){
         insere(Descarte, cor, valor); // Inserir carta no baralho de descarte
     }
     else{ // Se não conseguir remover a carta
-        printf("Jogador não tem mais cartas %d!\n", jogador->id);
+        printf("Jogador nao tem mais cartas %d!\n", jogador->id);
     }
 }

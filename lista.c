@@ -71,8 +71,8 @@ iterador ultimo(lista *l){
   return(i);
 }
 
-int acabou(iterador i){
-  if(i.posicao == i.estrutura->sentinela){
+int acabou(iterador *i){
+  if(i->posicao == i->estrutura->sentinela){
     return(1);
   }else{
     return(0);
@@ -80,7 +80,7 @@ int acabou(iterador i){
 }
 
 int proximo(iterador *i){
-  if(!acabou(*i)){
+  if(!acabou(i)){
     i->posicao = i->posicao->prox;
     return(1);
   }
@@ -88,7 +88,7 @@ int proximo(iterador *i){
 }
 
 int anterior(iterador *i){
-  if(!acabou(*i)){
+  if(!acabou(i)){
     i->posicao = i->posicao->ant;
     return(1);
   }
@@ -97,19 +97,18 @@ int anterior(iterador *i){
 
 int lista_retirar_termo(lista *l, T1 data1, T2 data2){
   iterador i = primeiro(l);
-  while(!acabou(i)){
-    if((i.posicao->dado1 == data1) &&(i.posicao->dado2 == data2)){
-      Node *n = i.posicao;
-      n->prox->ant = n->ant;
-      n->ant->prox = n->prox;
-      free(n);
-      l->quantidade--;
-      return(1);
-    }
-    if(!proximo(&i))
-      return(0);
+  while (!acabou(&i)) {
+      if (i.posicao->dado1 == data1 && i.posicao->dado2 == data2) {
+          // Remover o nó da lista
+          i.posicao->ant->prox = i.posicao->prox;
+          i.posicao->prox->ant = i.posicao->ant;
+          free(i.posicao);
+          l->quantidade--;
+          return 1; // Sucesso
+      }
+      proximo(&i);
   }
-  return(0); 
+  return 0; // Falha
 }
 
 void lista_destruir(lista *l){

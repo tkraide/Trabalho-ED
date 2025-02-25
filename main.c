@@ -43,6 +43,18 @@ int main() {
         mostrar_mao_player(&jogadores[i]);
     }
 
+    struct carta cartaTeste;
+
+    scanf("%d %c", &cartaTeste.dado1, &cartaTeste.dado2); // Recebe a carta a ser descartada
+
+    descartar_carta(&Descarte, &jogadores[0], cartaTeste.dado1, cartaTeste.dado2); // Descarta a carta
+
+    mostrar_mao_player(&jogadores[0]);
+
+    comprar_carta(&Deck, &jogadores[0]); // Compra uma carta
+
+    mostrar_mao_player(&jogadores[0]);
+
     while (1) // ******************* Substituir condição do while pelo Loop principal do jogo *******************
     {
         // **************   Manter  *******************
@@ -50,7 +62,7 @@ int main() {
         // Verifica se o baralho de compra está ficando vazio e reabastece com as cartas do baralho de descarte
         if (tamanho(&Deck) < 1) {  // pode aumentar conforme a necessidade
             reabastecerDeck(&Deck, &Descarte);
-        } 
+        }
     }
     
     return 0;

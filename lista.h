@@ -49,7 +49,7 @@ int proximo(iterador *i); // passa o iterador pro próximo elemento da lista. Re
 
 int anterior(iterador *i); // passa o iterador pro elemento anterior da lista. Retorna 1 se conseguir e 0 se passar do inicio da lista
 
-int acabou(iterador i); // verifica se o iterador atingiu o final da lista. Retorna 1 se sim, e 0 se não
+int acabou(iterador *i); // verifica se o iterador atingiu o final da lista. Retorna 1 se sim, e 0 se não
 
 void lista_destruir(lista *l); // destrói a lista. Para reutilizá-la, é necessária a chamada da função lista_inicializar
 
