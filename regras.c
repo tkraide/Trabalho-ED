@@ -1,6 +1,20 @@
 #include "regras.h"
 #include <stdio.h>
 
+// Função para receber a quantidade de jogadores
+void receberJogadores(int *qtdJogadores) {
+    printf("Quantos jogadores vao jogar? (entre 2 e 4): ");
+    scanf("%d", qtdJogadores); // Recebe a quantidade de jogadores
+
+    if (*qtdJogadores < 2 || *qtdJogadores > 4) { // Verifica se a quantidade de jogadores é válida
+        while (*qtdJogadores < 2 || *qtdJogadores > 4) {
+            printf("Quantidade de jogadores invalida! O jogo deve ter entre 2 e 4 jogadores.\n");
+            printf("Quantos jogadores vao jogar? (entre 2 e 4): ");
+            scanf("%d", qtdJogadores);
+        }
+    }
+}
+
 // Função para controlar a ordem dos turnos e jogadores
 void controlar_turnos(Player jogadores[], int qtdJogadores, int *jogadorAtual, int *direcao) {
     *jogadorAtual += *direcao;
@@ -51,6 +65,7 @@ int validar_jogada(struct carta cartaJogada, struct carta cartaTopo) {
     return (cartaJogada.dado1 == cartaTopo.dado1 || cartaJogada.dado2 == cartaTopo.dado2 || cartaJogada.dado1 == CARTA_COMPRAR_4 || cartaJogada.dado1 == CARTA_MUDAR_COR);
 }
 
+// Função para verificar se a carta é válida
 int verificar_carta(struct carta cartaJogada) {
     return ((cartaJogada.dado1 >= 0 && cartaJogada.dado1 <= 14) && cartaJogada.dado2 >= 'A' && cartaJogada.dado2 <= 'E');
 }

@@ -7,8 +7,8 @@
 
 int main() {
     int qtdJogadores;
-    printf("Quantos jogadores vao jogar?: ");
-    scanf("%d", &qtdJogadores); // Recebe a quantidade de jogadores
+
+    receberJogadores(&qtdJogadores); // Recebe a quantidade de jogadores já validado
 
     Player jogadores[qtdJogadores]; // Cria um vetor de jogadores
     iniciar_jogadores(jogadores, qtdJogadores); // Inicializa os jogadores

@@ -10,6 +10,9 @@
 #define CARTA_PULAR 13
 #define CARTA_MUDAR_COR 14
 
+// Função para receber a quantidade de jogadores
+void receberJogadores(int *qtdJogadores);
+
 // Função para controlar a ordem dos turnos e jogadores
 void controlar_turnos(Player jogadores[], int qtdJogadores, int *jogadorAtual, int *direcao);
 
