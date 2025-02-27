@@ -18,6 +18,7 @@ azul		= A<br>
 amarelo		= B<br>
 verde		= C<br>
 vermelho	= D<br>
+cartas especiais (sem cor) = E<br>
 
 ## Formato da carta:
 
@@ -29,10 +30,10 @@ Exemplo:
 
 Números:
 
-0 a 9 
-10 - Comprar 2
-11 E - próximo jogador compra +4 cartas(próxima carta pode ser de qualquer cor)
-12 - Inverter
-13 - Pular jogador
-14 E - Troca a cor da carta da mesa(digitar a letra da cor escolhida)
+0 a 9<br>
+10 - Comprar 2<br>
+11 E - próximo jogador compra +4 cartas(próxima carta pode ser de qualquer cor)<br>
+12 - Inverter<br>
+13 - Pular jogador<br>
+14 E - Troca a cor da carta da mesa(digitar a letra da cor escolhida)<br>
 
