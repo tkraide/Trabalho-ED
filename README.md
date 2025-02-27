@@ -31,9 +31,9 @@ Exemplo:
 Números:
 
 0 a 9<br>
-10 - Comprar 2<br>
-11 E - próximo jogador compra +4 cartas(próxima carta pode ser de qualquer cor)<br>
-12 - Inverter<br>
+10 - próximo jogador compra +2 cartas<br>
+11 E - próximo jogador compra +4 cartas (próxima carta pode ser de qualquer cor)<br>
+12 - Inverter fluxo do jogo<br>
 13 - Pular jogador<br>
-14 E - Troca a cor da carta da mesa(digitar a letra da cor escolhida)<br>
+14 E - Troca a cor da carta da mesa (digitar a letra da cor escolhida)<br>
 
