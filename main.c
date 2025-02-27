@@ -55,11 +55,6 @@ int main() {
     // Distribui as cartas para os jogadores
     distribuir_cartas(&Deck, jogadores, qtdJogadores);
 
-    for (int i = 0; i < qtdJogadores; i++) { // Printei as maos somente para teste
-        mostrar_mao_player(&jogadores[i]);
-        printf("\n");
-    }
-
     struct carta cartaTopo;
     retira(&Deck);
     cartaTopo = Deck.dados[Deck.primeiro];
@@ -96,7 +91,7 @@ int main() {
             scanf("%d %c", &cartaJogada.dado1, &cartaJogada.dado2);
 
             // Validar a jogada, exceto na primeira jogada
-            if (primeiraJogada || validar_jogada(cartaJogada, cartaTopo)) {
+            if ((primeiraJogada || validar_jogada(cartaJogada, cartaTopo)) && verificar_carta(cartaJogada)) {
                 descartar_carta(&Descarte, &jogadores[jogadorAtual], cartaJogada.dado1, cartaJogada.dado2);
                 cartaTopo = cartaJogada;
                 aplicar_regras_especiais(&Deck, &Descarte, jogadores, qtdJogadores, &jogadorAtual, &direcao, cartaJogada, &cartaTopo);

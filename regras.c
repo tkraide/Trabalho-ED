@@ -51,6 +51,10 @@ int validar_jogada(struct carta cartaJogada, struct carta cartaTopo) {
     return (cartaJogada.dado1 == cartaTopo.dado1 || cartaJogada.dado2 == cartaTopo.dado2 || cartaJogada.dado1 == CARTA_COMPRAR_4 || cartaJogada.dado1 == CARTA_MUDAR_COR);
 }
 
+int verificar_carta(struct carta cartaJogada) {
+    return ((cartaJogada.dado1 >= 0 && cartaJogada.dado1 <= 14) && cartaJogada.dado2 >= 'A' && cartaJogada.dado2 <= 'E');
+}
+
 // Função para implementar a lógica de fim de jogo
 int verificar_fim_jogo(Player jogadores[], int qtdJogadores) {
     for (int i = 0; i < qtdJogadores; i++) {

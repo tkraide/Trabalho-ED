@@ -37,7 +37,7 @@ void rmv_cartas(Player *jogador, T1 cor, T2 valor){
 // Mostrar mão do jogador
 void mostrar_mao_player(Player *jogador){
 
-    printf("Mao do jogador %d:\n", jogador->id); // Mostrar a mão do jogador
+    printf("\nMao do jogador %d:\n", jogador->id); // Mostrar a mão do jogador
   
     iterador i = primeiro(&jogador->mao); // Criar um iterador para percorrer a mão do jogador
   

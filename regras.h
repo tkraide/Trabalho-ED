@@ -19,6 +19,9 @@ void aplicar_regras_especiais(fila *Deck, fila *Descarte, Player jogadores[], in
 // Função para validar se a jogada do jogador é válida
 int validar_jogada(struct carta cartaJogada, struct carta cartaTopo);
 
+// Função para verificar se a carta é válida
+int verificar_carta(struct carta cartaJogada);
+
 // Função para implementar a lógica de fim de jogo
 int verificar_fim_jogo(Player jogadores[], int qtdJogadores);
 
